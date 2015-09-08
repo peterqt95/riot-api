@@ -2,17 +2,104 @@ html, body {
 	height: 100%;
 }
 
+/* Background URL */
+#background {
+	max-width: 100%;
+	position: fixed;
+	z-index: -1;
+}
+
 #background img{
 	width: 100%;
 	height: 100%;
 	background-position: center center;
-	background-size: cover;
+	background-repeat: no-repeat;
 	position: fixed;
 	overflow: hidden;
-	z-index: -1;
+}
+
+/* Champion Descriptions */
+.champ_desc {
+	height: auto;
+	width: 400px;
+	position: absolute;
+	top: 150px;
+	font-size: 30px;
+	font-family: 'Alegreya', serif;
+	color: #dcc112;
+	margin-left: 50px;
+	font-style: italic;
+	line-height: 2em;
+}
+
+.champ_desc h1 {
+	font-size: 60px;
+	font-weight: 700;
+	font-style: none;
+}
+
+/* Champion navigation bar */
+
+#nav_container {
+	padding: 10px;
+	width: auto;
 }
 
 #nav li {
 	display: inline-block;
 	overflow: hidden;
+}
+
+#nav img {
+	height: 75px;
+	width: 75px;
+	box-shadow: 20px 20px 23px #000;
+}
+
+.active {
+	border: 2px solid #dcc112;
+	border-radius: 5%;
+}
+
+/* Footer */
+footer {
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 10px;
+	color: #c9c9c9;
+	font-size: 10px;
+	margin-left: 10px;
+}
+
+
+/* Responsive Window */
+@media(max-width: 1600px){
+	#background img {
+		width: 1600px;
+	}
+}
+
+@media(max-width: 800px){
+	#nav img {
+		width: 60px;
+		height: 60px;
+	}
+}
+
+@media(max-width: 500px){
+	#nav img {
+		width: 50px;
+		height: 50px;
+	}
+
+	.champ_desc {
+		top: 300px;
+		margin-left: 0;
+	}
+}
+
+@media(max-width: 400px){
+	.champ_desc {
+		width: auto;
+	}
 }

@@ -10,7 +10,6 @@ function findChamp(){
 			for(var i = 0; i < listLength; i++){
 				champion.push(json['champions'][i].id);
 			}
-			//document.getElementById('champ').innerHTML = champion;
 
 			//Pass ID to retrieve Champ name
 			for(var i = 0; i < listLength; i++){
@@ -34,9 +33,14 @@ function getChamp(championIDList, i){
 			var champName = currentChamp.key;
 			var currentIdx = i.toString();
 			var currentImgNav = 'champ'.concat(currentIdx);
-			var currentImgBG = currentImgNav.concat('bg');
-			document.getElementById(currentImgNav).src = 'http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/'+champName+'.png';
-			document.getElementById(currentImgBG).src = 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+champName+'_0.jpg';
+			var currentImgBG = currentImgNav.concat('_bg');
+			var currentChampName = currentImgNav.concat('_name');
+			var currentChampTitle = currentImgNav.concat('_title');
+
+			document.getElementById(currentChampName).innerHTML = currentChamp.name; //set Name
+			document.getElementById(currentChampTitle).innerHTML = currentChamp.title; //set Title
+			document.getElementById(currentImgNav).src = 'http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/'+champName+'.png'; //set nav img
+			document.getElementById(currentImgBG).src = 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+champName+'_0.jpg'; //set bg img
 		},
 		error: function(XMLHttpReqest, textStatus, errorThrown){
 			alert("champ name fail");
@@ -47,7 +51,7 @@ function getChamp(championIDList, i){
 //Create environment for slider to function
 var image_change_speed = 5000,
 	transition_speed = 400;
-var items = $("#background").children('img'),
+var items = $("#background").children('div'), // list of all the images
 	nav = $("#nav").children('li'),
 	item_length = items.length,
 	current,
@@ -70,13 +74,13 @@ function newImage(index){
 		}
 		else {
 			// when index is 0
-			i = item_length - 1;
+			i = item_length-1;
 		}
 	}
 
 	//when next is clicked
 	if(index == 'next'){
-		if(current < item_length - 1){
+		if(current < item_length-1){
 			i = current + 1;
 		}
 		else{
@@ -84,10 +88,12 @@ function newImage(index){
 		}
 	}
 
-	//switch to the new picture
-	nav.removeClass('active').eq(i).addClass('active');
-	items.fadeOut(transition_speed).eq(i).fadeIn(transition_speed);
-	current = i;
+	//transition only if its a new picture
+	if(current !== i){
+		nav.removeClass('active').eq(i).addClass('active');
+		items.fadeOut(transition_speed).eq(i).fadeIn(transition_speed);
+		current = i;
+	}
 
 	//reset time interval
 	clearTimeout(refresh_time);
