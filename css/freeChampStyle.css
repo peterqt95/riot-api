@@ -6,7 +6,6 @@ html, body {
 #background {
 	max-width: 100%;
 	position: fixed;
-	z-index: -1;
 }
 
 #background img{
@@ -21,7 +20,7 @@ html, body {
 /* Champion Descriptions */
 .champ_desc {
 	height: auto;
-	width: 400px;
+	width: 500px;
 	position: absolute;
 	top: 150px;
 	font-size: 30px;
@@ -38,9 +37,82 @@ html, body {
 	font-style: none;
 }
 
+/* Champion Skills */
+.champ_skills {
+	width: auto;
+	height: 150px;
+	background-color: #000;	
+}
+
+.champ_skills header {
+	border-bottom: 1px solid #fff;
+	line-height: 20px;
+	text-align: left;
+}
+
+.skill_header li {
+	display: inline-block;
+	font-size: 12px;
+	margin-right: 5px;
+}
+
+.skill_name {
+	font-size: 16px;
+}
+
+.col-1-3 {
+	width: 20%;
+	border-right: 1px solid #fff;
+	height: 123px;
+	display: inline-block;
+	float: left;
+}
+
+.col-1-3 img {
+	margin-top: 35px;
+	border: 1px solid #dcc112;
+	border-radius: 5%;
+}
+
+.col-2-3 {
+	display: inline-block;
+	width: 70%;
+	font-size: 12px;
+	line-height: 15px;
+	float: right;
+	margin-right: 15px;
+	margin-top: 20px;
+}
+
+/* Champion Skills Nav Bar */
+.hidden {
+	display: none;
+}
+
+.visible {
+	display: block;
+}
+
+.selected {
+	color: #fff;
+}
+
+#champ_skill_nav {
+	text-align: center;
+	background: #000;
+	border: 2px solid #dcc112;
+}
+
+#champ_skill_nav a {
+	padding: 3px 20px;
+	border: 1px solid #dcc112;
+}
+
+
 /* Champion navigation bar */
 
 #nav_container {
+	position: absolute;
 	padding: 10px;
 	width: auto;
 }
