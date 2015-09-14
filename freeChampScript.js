@@ -135,7 +135,7 @@ function getSkills(championID, curIndex){
 }
 
 //Create environment for slider to function
-var image_change_speed = 5000,
+var image_change_speed = 30000,
 	transition_speed = 400;
 var items = $("#background").children('div'), // list of all the images
 	nav = $("#nav").children('li'),
@@ -233,6 +233,6 @@ function tabSwitch() {
 $(document).ready(function() {
 	findChamp();
 	//start slider
-	//newImage('next');
+	newImage('next');
 	tabSwitch();
 })
